@@ -10,9 +10,41 @@ env:
   ECR_REGISTRY: 336036263554.dkr.ecr.ap-southeast-1.amazonaws.com/boversal-backend
 
 jobs:
+  changes:
+    name: Detect Changes
+    runs-on: ubuntu-latest
+    outputs:
+      gateway: ${{ steps.filter.outputs.gateway }}
+      project-management: ${{ steps.filter.outputs.project-management }}
+      utility: ${{ steps.filter.outputs.utility }}
+      intelli-core: ${{ steps.filter.outputs.intelli-core }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Filter changed paths
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            gateway:
+              - 'Boversal.Gateway/**'
+            project-management:
+              - 'ProjectManagementService/**'
+              - 'ProjectManagementService.API/**'
+              - 'ProjectManagementService.Application/**'
+              - 'ProjectManagementService.Domain/**'
+              - 'ProjectManagementService.Infrastructure/**'
+            utility:
+              - 'UtilityService/**'
+            intelli-core:
+              - 'IntelliCoreService/**'
+
   gateway:
     name: Gateway
     runs-on: ubuntu-latest
+    needs: changes
+    if: github.event_name == 'workflow_dispatch' || needs.changes.outputs.gateway == 'true'
 
     steps:
       - name: Checkout
@@ -53,6 +85,8 @@ jobs:
   project-management:
     name: Project Management
     runs-on: ubuntu-latest
+    needs: changes
+    if: github.event_name == 'workflow_dispatch' || needs.changes.outputs.project-management == 'true'
 
     steps:
       - name: Checkout
@@ -93,6 +127,8 @@ jobs:
   utility:
     name: Utility
     runs-on: ubuntu-latest
+    needs: changes
+    if: github.event_name == 'workflow_dispatch' || needs.changes.outputs.utility == 'true'
 
     steps:
       - name: Checkout
@@ -132,6 +168,8 @@ jobs:
   intelli-core:
     name: IntelliCore Service
     runs-on: ubuntu-latest
+    needs: changes
+    if: github.event_name == 'workflow_dispatch' || needs.changes.outputs.intelli-core == 'true'
 
     steps:
       - name: Checkout
