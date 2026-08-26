@@ -1,0 +1,1 @@
+"""Image preprocessing and prediction logic for computer vision."""
