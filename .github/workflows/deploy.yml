@@ -4,6 +4,12 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      force_deploy:
+        description: 'Build and deploy all services'
+        required: false
+        type: boolean
+        default: false
 
 env:
   AWS_REGION: ap-southeast-1
@@ -44,7 +50,7 @@ jobs:
     name: Gateway
     runs-on: ubuntu-latest
     needs: changes
-    if: github.event_name == 'workflow_dispatch' || needs.changes.outputs.gateway == 'true'
+    if: (github.event_name == 'workflow_dispatch' && inputs.force_deploy) || needs.changes.outputs.gateway == 'true'
 
     steps:
       - name: Checkout
@@ -86,7 +92,7 @@ jobs:
     name: Project Management
     runs-on: ubuntu-latest
     needs: changes
-    if: github.event_name == 'workflow_dispatch' || needs.changes.outputs.project-management == 'true'
+    if: (github.event_name == 'workflow_dispatch' && inputs.force_deploy) || needs.changes.outputs.project-management == 'true'
 
     steps:
       - name: Checkout
@@ -128,7 +134,7 @@ jobs:
     name: Utility
     runs-on: ubuntu-latest
     needs: changes
-    if: github.event_name == 'workflow_dispatch' || needs.changes.outputs.utility == 'true'
+    if: (github.event_name == 'workflow_dispatch' && inputs.force_deploy) || needs.changes.outputs.utility == 'true'
 
     steps:
       - name: Checkout
@@ -169,7 +175,7 @@ jobs:
     name: IntelliCore Service
     runs-on: ubuntu-latest
     needs: changes
-    if: github.event_name == 'workflow_dispatch' || needs.changes.outputs.intelli-core == 'true'
+    if: (github.event_name == 'workflow_dispatch' && inputs.force_deploy) || needs.changes.outputs.intelli-core == 'true'
 
     steps:
       - name: Checkout
