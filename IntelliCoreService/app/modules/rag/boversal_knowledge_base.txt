@@ -1,0 +1,111 @@
+Giới thiệu dự án Boversal
+
+Boversal là một nền tảng hỗ trợ người dùng quản lý dự án, công việc và lịch làm việc trên cùng một hệ thống. Có thể hình dung Boversal như sự kết hợp giữa một công cụ quản lý công việc theo dạng bảng Kanban và một ứng dụng quản lý lịch, giúp người dùng dễ dàng theo dõi công việc, phối hợp với các thành viên trong nhóm và quản lý các cuộc họp.
+
+Mục tiêu của Boversal là giúp việc quản lý công việc hằng ngày trở nên đơn giản, trực quan và thuận tiện hơn. Thay vì phải sử dụng nhiều công cụ khác nhau để theo dõi dự án, giao việc, trao đổi với thành viên, lên lịch họp và quản lý tài liệu, người dùng có thể thực hiện các công việc này tập trung trên một nền tảng.
+
+Quản lý dự án
+
+Người dùng có thể tạo và quản lý nhiều dự án khác nhau. Mỗi dự án có thể có nhiều thành viên cùng tham gia và chứa nhiều công việc liên quan.
+
+Thông qua dự án, người dùng có thể theo dõi tình hình chung, biết những công việc đang được thực hiện, những công việc đã hoàn thành và những công việc chưa bắt đầu. Điều này giúp các thành viên có cái nhìn tổng quan về tiến độ thay vì phải theo dõi từng công việc riêng lẻ.
+
+Quản lý công việc theo Kanban
+
+Một trong những chức năng chính của Boversal là quản lý công việc theo dạng bảng Kanban.
+
+Mỗi công việc được hiển thị dưới dạng một thẻ trên bảng. Người dùng có thể dễ dàng kéo và thả các thẻ công việc giữa những trạng thái khác nhau, chẳng hạn như Cần làm, Đang làm và Hoàn thành.
+
+Mỗi công việc có thể chứa các thông tin như người phụ trách, thời hạn hoàn thành và mức độ ưu tiên. Nhờ đó, các thành viên trong dự án có thể nhanh chóng biết mình cần làm gì, công việc nào đang được ưu tiên và thời hạn của từng nhiệm vụ.
+
+Cách hiển thị trực quan này cũng giúp người quản lý dễ dàng theo dõi tiến độ của toàn bộ dự án chỉ thông qua một bảng công việc.
+
+Quản lý cuộc họp và lịch làm việc
+
+Boversal cũng hỗ trợ người dùng lên lịch và quản lý các cuộc họp.
+
+Khi tạo một cuộc họp, người dùng có thể xác định thời gian, nội dung và những người sẽ tham gia. Sau khi cuộc họp được tạo, hệ thống sẽ tự động gửi email mời đến những người tham dự.
+
+Điều này giúp giảm bớt các thao tác thủ công trong quá trình tổ chức cuộc họp và đảm bảo những người liên quan đều nhận được thông tin cần thiết.
+
+Nhắc nhở tự động
+
+Boversal có khả năng gửi các thông báo nhắc nhở theo thời gian đã được thiết lập.
+
+Ví dụ, khi người dùng có một cuộc họp sắp diễn ra hoặc một công việc quan trọng sắp đến hạn, hệ thống có thể tự động gửi email nhắc nhở. Nhờ đó, người dùng hạn chế được tình trạng quên lịch họp hoặc bỏ lỡ thời hạn hoàn thành công việc.
+
+Tính năng này đặc biệt hữu ích khi người dùng phải quản lý nhiều dự án và công việc cùng lúc.
+
+Bình luận và trao đổi
+
+Mỗi dự án hoặc công việc đều có khu vực để các thành viên trao đổi với nhau.
+
+Người dùng có thể để lại bình luận, đặt câu hỏi hoặc cập nhật thông tin liên quan đến công việc ngay tại nơi công việc đó được quản lý. Các thành viên khác có thể theo dõi và phản hồi, giúp toàn bộ quá trình trao đổi được tập trung và dễ theo dõi hơn.
+
+Thay vì phải tìm lại thông tin từ nhiều cuộc trò chuyện hoặc các kênh liên lạc khác nhau, thành viên có thể xem trực tiếp nội dung trao đổi ngay bên trong dự án hoặc công việc tương ứng.
+
+Tệp đính kèm
+
+Người dùng có thể tải lên các tệp, hình ảnh hoặc tài liệu liên quan đến dự án và công việc.
+
+Ví dụ, một công việc thiết kế có thể đính kèm bản thiết kế, một công việc phát triển có thể đính kèm tài liệu yêu cầu, hoặc một dự án có thể lưu trữ những tài liệu cần thiết cho các thành viên.
+
+Nhờ đó, thông tin và tài liệu liên quan đến công việc được tập trung tại cùng một nơi, giúp các thành viên dễ dàng tìm kiếm và sử dụng khi cần.
+
+Đăng ký và đăng nhập
+
+Boversal cung cấp chức năng đăng ký và đăng nhập để mỗi người dùng có tài khoản riêng.
+
+Sau khi đăng nhập, người dùng có thể truy cập các dự án mà mình tham gia, quản lý công việc được giao, theo dõi lịch họp và thực hiện các thao tác phù hợp với tài khoản của mình.
+
+Việc sử dụng tài khoản riêng cũng giúp thông tin của từng người dùng và từng dự án được quản lý một cách độc lập.
+
+Dashboard tổng quan
+
+Boversal cung cấp khu vực tổng quan giúp người dùng nhanh chóng nắm bắt tình hình công việc.
+
+Tại đây, người dùng có thể theo dõi những thông tin quan trọng liên quan đến dự án và công việc của mình, từ đó biết được những nhiệm vụ cần tập trung xử lý và tình trạng chung của các dự án đang tham gia.
+
+Thay vì phải mở từng dự án để kiểm tra, dashboard giúp người dùng có một góc nhìn tổng thể ngay từ đầu.
+
+Một quy trình sử dụng điển hình
+
+Ví dụ, một nhóm đang thực hiện một dự án mới.
+
+Người quản lý có thể tạo dự án và thêm các thành viên vào dự án. Sau đó, các công việc cần thực hiện được tạo thành từng task và giao cho những thành viên phù hợp.
+
+Trong quá trình thực hiện, thành viên có thể cập nhật trạng thái công việc bằng cách di chuyển công việc giữa các cột trên bảng Kanban. Nếu cần trao đổi, các thành viên có thể bình luận trực tiếp trên công việc và đính kèm những tài liệu liên quan.
+
+Nếu nhóm cần tổ chức một cuộc họp, người dùng có thể tạo lịch họp, chọn thời gian và những người tham dự. Hệ thống sẽ gửi email mời đến các thành viên được chỉ định.
+
+Khi thời hạn công việc hoặc thời gian cuộc họp đến gần, hệ thống có thể gửi email nhắc nhở để người dùng không bỏ lỡ những nhiệm vụ hoặc sự kiện quan trọng.
+
+Như vậy, toàn bộ quá trình từ tạo dự án → phân chia công việc → theo dõi tiến độ → trao đổi → chia sẻ tài liệu → tổ chức cuộc họp → nhận nhắc nhở đều có thể được quản lý tập trung trong Boversal.
+
+Giá trị mà Boversal mang lại
+
+Boversal hướng đến việc giải quyết một vấn đề phổ biến trong quá trình làm việc nhóm: thông tin bị phân tán ở nhiều nơi.
+
+Công việc có thể được quản lý ở một ứng dụng, lịch họp ở một ứng dụng khác, tài liệu nằm ở một nơi khác và việc trao đổi lại diễn ra trên một kênh riêng. Khi số lượng dự án và thành viên tăng lên, việc theo dõi tất cả những thông tin này trở nên khó khăn.
+
+Boversal tập trung những hoạt động quan trọng vào một nền tảng duy nhất, giúp người dùng:
+
+Quản lý nhiều dự án và thành viên.
+Theo dõi công việc trực quan bằng bảng Kanban.
+Phân công công việc cho từng thành viên.
+Theo dõi thời hạn và mức độ ưu tiên của công việc.
+Trao đổi trực tiếp trên từng dự án hoặc công việc.
+Chia sẻ tài liệu và tệp đính kèm.
+Tạo và quản lý các cuộc họp.
+Tự động gửi email mời họp.
+Nhận email nhắc nhở về các công việc và cuộc họp quan trọng.
+Theo dõi tình hình tổng thể thông qua dashboard.
+Tổng kết
+
+Boversal là một nền tảng quản lý công việc và dự án được xây dựng nhằm hỗ trợ các cá nhân và nhóm làm việc tổ chức công việc một cách tập trung và trực quan.
+
+Từ việc tạo dự án, phân công nhiệm vụ, theo dõi tiến độ trên bảng Kanban, trao đổi với thành viên, chia sẻ tài liệu cho đến việc lên lịch họp và nhận nhắc nhở, Boversal cung cấp một quy trình quản lý xuyên suốt cho người dùng.
+
+Với cách tiếp cận này, Boversal không chỉ giúp người dùng biết “cần làm gì”, mà còn giúp họ biết “ai đang làm”, “khi nào cần hoàn thành” và “cần phối hợp với ai”, từ đó hỗ trợ nhóm làm việc hiệu quả và có tổ chức hơn.
+
+developer is a handsome boy, he live in dong nai city, he study software engineer, and his name is Vu

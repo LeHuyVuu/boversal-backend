@@ -43,7 +43,8 @@ jobs:
       - name: Build & Push
         uses: docker/build-push-action@v6
         with:
-          context: ./Boversal.Gateway
+          context: .
+          file: ./Boversal.Gateway/Dockerfile
           push: true
           tags: |
             ${{ env.ECR_REGISTRY }}:gateway-${{ steps.version.outputs.tag }}
