@@ -128,3 +128,42 @@ jobs:
           tags: |
             ${{ env.ECR_REGISTRY }}:utility-${{ steps.version.outputs.tag }}
             ${{ env.ECR_REGISTRY }}:utility-latest
+
+  intelli-core:
+    name: IntelliCore Service
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Load AWS credentials
+        run: |
+          echo '${{ secrets.ENV_FILE }}' > .env
+          echo "AWS_ACCESS_KEY_ID=$(grep '^AWS_ACCESS_KEY_ID=' .env | cut -d'=' -f2- | tr -d '"')" >> "$GITHUB_ENV"
+          echo "AWS_SECRET_ACCESS_KEY=$(grep '^AWS_SECRET_ACCESS_KEY=' .env | cut -d'=' -f2- | tr -d '"')" >> "$GITHUB_ENV"
+
+      - name: Configure AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to ECR
+        run: |
+          aws ecr get-login-password --region "$AWS_REGION" |
+            docker login --username AWS --password-stdin "$ECR_REGISTRY"
+
+      - name: Get image tag
+        id: version
+        run: echo "tag=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Build & Push
+        uses: docker/build-push-action@v6
+        with:
+          context: ./IntelliCoreService
+          push: true
+          tags: |
+            ${{ env.ECR_REGISTRY }}:intellcoreservice-${{ steps.version.outputs.tag }}
+            ${{ env.ECR_REGISTRY }}:intellcoreservice-latest
