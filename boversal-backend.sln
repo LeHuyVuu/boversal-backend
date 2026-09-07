@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36429.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagementService.API", "ProjectManagementService.API\ProjectManagementService.API.csproj", "{91DAEA81-A8AF-4336-B9A9-5ED0B9677210}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagementService.API", "ProjectManagementService\ProjectManagementService.API\ProjectManagementService.API.csproj", "{91DAEA81-A8AF-4336-B9A9-5ED0B9677210}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagementService.Infrastructure", "ProjectManagementService.Infrastructure\ProjectManagementService.Infrastructure.csproj", "{1F97EAD2-B080-4E15-922D-CB04DC4F0082}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagementService.Infrastructure", "ProjectManagementService\ProjectManagementService.Infrastructure\ProjectManagementService.Infrastructure.csproj", "{1F97EAD2-B080-4E15-922D-CB04DC4F0082}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagementService.Application", "ProjectManagementService.Application\ProjectManagementService.Application.csproj", "{3EE654EC-84C9-4D3A-BE01-8625206C5DAA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagementService.Application", "ProjectManagementService\ProjectManagementService.Application\ProjectManagementService.Application.csproj", "{3EE654EC-84C9-4D3A-BE01-8625206C5DAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagementService.Domain", "ProjectManagementService.Domain\ProjectManagementService.Domain.csproj", "{97D624A7-14CD-4AA5-952C-085491D291A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagementService.Domain", "ProjectManagementService\ProjectManagementService.Domain\ProjectManagementService.Domain.csproj", "{97D624A7-14CD-4AA5-952C-085491D291A4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectManagementService", "ProjectManagementService", "{40875DB0-F294-4869-9E35-0DE55A1139C1}"
 EndProject

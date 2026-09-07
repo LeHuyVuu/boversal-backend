@@ -1,0 +1,16 @@
+**/.git
+**/.gitignore
+**/.vs
+**/.vscode
+**/.idea
+**/*.*proj.user
+**/*.dbmdl
+**/*.jfm
+**/bin
+**/obj
+**/node_modules
+**/npm-debug.log
+**/.env.local
+**/secrets.dev.yaml
+**/values.dev.yaml
+README.md

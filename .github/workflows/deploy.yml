@@ -37,10 +37,6 @@ jobs:
               - 'Boversal.Gateway/**'
             project-management:
               - 'ProjectManagementService/**'
-              - 'ProjectManagementService.API/**'
-              - 'ProjectManagementService.Application/**'
-              - 'ProjectManagementService.Domain/**'
-              - 'ProjectManagementService.Infrastructure/**'
             utility:
               - 'UtilityService/**'
             intelli-core:
@@ -123,7 +119,7 @@ jobs:
       - name: Build & Push
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: ./ProjectManagementService
           file: ./ProjectManagementService.API/Dockerfile
           push: true
           tags: |

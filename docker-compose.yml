@@ -35,7 +35,7 @@ services:
 
   projectmanagement:
     build:
-      context: .
+      context: ./ProjectManagementService
       dockerfile: ProjectManagementService.API/Dockerfile
     container_name: boversal-projectmanagement
     environment:
