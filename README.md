@@ -3,6 +3,8 @@
 ### Project & Task Management System — Microservices Architecture
 
 ![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?style=for-the-badge)
+![Java](https://img.shields.io/badge/Java-17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge)
 ![Kafka](https://img.shields.io/badge/Kafka-Event%20Bus-231F20?style=for-the-badge)
 ![Docker](https://img.shields.io/badge/Docker-Deploy-2496ED?style=for-the-badge)
@@ -40,6 +42,12 @@ flowchart TB
 
     GW --> PMS
     GW --> UTS
+    GW --> ATS
+
+    subgraph ATS["AuthenticateService"]
+        direction TB
+        A1["Java 17 + Spring Boot\nRegister - Login - Me - Logout"]
+    end
 
     subgraph PMS["ProjectManagementService"]
         direction TB
@@ -52,6 +60,7 @@ flowchart TB
     end
 
     PMS <--> DB[("MySQL")]
+    ATS <--> DB
     PMS -- "Kafka: meeting-created" --> UTS
     UTS --> S3[("AWS S3")]
     UTS --> Mail["SMTP Email"]
@@ -64,6 +73,19 @@ flowchart TB
 <table>
 <tr>
 <td width="33%" valign="top">
+
+### AuthenticateService
+**Dedicated Java authentication service**
+
+- Built with Java 17 and Spring Boot
+- Provides register, login, current-user, logout, and health APIs
+- Uses vertical slice architecture, with one folder per API
+- Shares the MySQL `user` table with `ProjectManagementService`
+- Uses JWT tokens and HTTP-only `jwt` cookies
+- Uses ASP.NET Identity-compatible PBKDF2 password hashing
+- Validates and persists users through JPA without changing the existing database schema
+
+The service is available through the gateway under `/authenticate-service`.
 
 ### Gateway
 **Single entry point**
@@ -172,6 +194,8 @@ flowchart TB
 ### Summary in One Sentence
 
 **Three lightweight services (Gateway -> ProjectManagement -> Utility), communicating over HTTP and Kafka, together powering a project/task/meeting management system with automatic email notifications and file storage.**
+
+The architecture also includes `AuthenticateService`, a Java service responsible for authentication and user identity while sharing the existing MySQL user data with `ProjectManagementService`.
 
 ## AuthenticateService Database Integration
 
