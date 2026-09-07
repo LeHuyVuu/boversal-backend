@@ -172,3 +172,13 @@ flowchart TB
 ### Summary in One Sentence
 
 **Three lightweight services (Gateway -> ProjectManagement -> Utility), communicating over HTTP and Kafka, together powering a project/task/meeting management system with automatic email notifications and file storage.**
+
+## AuthenticateService Database Integration
+
+`AuthenticateService` uses the same MySQL database and `user` table as `ProjectManagementService` through the shared `DATABASE_URL` environment variable. It uses JPA only for persistence and does not run schema generation or migrations:
+
+- Existing users are read from `user`.
+- New users are inserted into the same table.
+- Login updates `last_login_at`.
+- Passwords use the ASP.NET Identity PBKDF2 format, so hashes created by the .NET service remain compatible with Java.
+- The service receives `DATABASE_URL` from Docker Compose and converts the repository's .NET-style connection string to JDBC at startup.

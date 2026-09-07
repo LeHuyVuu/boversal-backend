@@ -13,6 +13,7 @@ services:
       - projectmanagement
       - utility
       - intellcoreservice
+      - authenticate-service
     restart: unless-stopped
     networks:
       - boversal-network
@@ -45,6 +46,7 @@ services:
       - JWT_ISSUER=${JWT_ISSUER}
       - JWT_AUDIENCE=${JWT_AUDIENCE}
       - JWT_EXPIRATION_HOURS=${JWT_EXPIRATION_HOURS}
+      - DATABASE_URL=${DATABASE_URL}
       - KAFKA_BOOTSTRAP_SERVERS=${KAFKA_BOOTSTRAP_SERVERS}
       - KAFKA_SASL_USERNAME=${KAFKA_SASL_USERNAME}
       - KAFKA_SASL_PASSWORD=${KAFKA_SASL_PASSWORD}
@@ -72,6 +74,21 @@ services:
       - EMAIL_FROM_NAME=${EMAIL_FROM_NAME}
       - AWS_REGION=${AWS_REGION}
       - AWS_BUCKET_NAME=${AWS_BUCKET_NAME}
+    restart: unless-stopped
+    networks:
+      - boversal-network
+
+  authenticate-service:
+    build:
+      context: ./AuthenticateService
+      dockerfile: Dockerfile
+    container_name: boversal-authenticate-service
+    environment:
+      - SERVER_PORT=8080
+      - JWT_KEY=${JWT_KEY}
+      - JWT_ISSUER=${JWT_ISSUER}
+      - JWT_AUDIENCE=${JWT_AUDIENCE}
+      - JWT_EXPIRATION_HOURS=${JWT_EXPIRATION_HOURS}
     restart: unless-stopped
     networks:
       - boversal-network
