@@ -9,6 +9,17 @@
 ![Kafka](https://img.shields.io/badge/Kafka-Event%20Bus-231F20?style=for-the-badge)
 ![Docker](https://img.shields.io/badge/Docker-Deploy-2496ED?style=for-the-badge)
 ![AWS S3](https://img.shields.io/badge/AWS%20S3-Storage-FF9900?style=for-the-badge)
+![Terraform](https://img.shields.io/badge/Terraform-IaC-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)
+
+---
+
+## Infrastructure (Terraform)
+
+The AWS infrastructure for this backend is provisioned as code with **Terraform**, and is maintained in a separate repository:
+
+👉 **[boversal-infrastructure](https://github.com/LeHuyVuu/boversal-infrastructure)**
+
+That repository defines the AWS resources used by the AWS deployment option (Elastic Load Balancer, Auto Scaling Group, and EC2 instances running the Docker Compose stack), so the environment can be created, updated, and torn down reproducibly instead of being configured by hand in the AWS console.
 
 ---
 
@@ -132,6 +143,7 @@ The service is available through the gateway under `/authenticate-service`.
 | Authentication | JWT |
 | File Storage | AWS S3 |
 | Containerization | Docker |
+| Infrastructure as Code | Terraform (AWS) |
 | CI/CD | GitHub Actions |
 
 ---
@@ -186,7 +198,7 @@ The service is available through the gateway under `/authenticate-service`.
 </div>
 
 > Two deployment options:
-> - **AWS EC2 + Docker Compose**, fronted by an **Elastic Load Balancer (ELB)** and managed by an **Auto Scaling Group (ASG)**, deployed automatically via GitHub Actions on every push.
+> - **AWS EC2 + Docker Compose**, fronted by an **Elastic Load Balancer (ELB)** and managed by an **Auto Scaling Group (ASG)**, with the AWS infrastructure provisioned by **Terraform** ([boversal-infrastructure](https://github.com/LeHuyVuu/boversal-infrastructure)) and the application deployed automatically via GitHub Actions on every push.
 > - **Render.com**, deployed using the included `render.yaml` file.
 
 ---
