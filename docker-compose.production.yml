@@ -1,10 +1,8 @@
-# Docker Compose Production - Pull images từ Docker Hub
-# Images được build và push tự động từ GitHub Actions
-# Format: lehuyvuuu/boversal-backend:tagname
+# Gateway and URL shortener images are published to ECR by GitHub Actions.
 
 services:
   gateway:
-    image: lehuyvuuu/boversal-backend:gateway
+    image: 336036263554.dkr.ecr.ap-southeast-1.amazonaws.com/boversal-backend:gateway-latest
     container_name: boversal-gateway
     ports:
       - "8080:8080"
@@ -14,10 +12,12 @@ services:
       - ReverseProxy__Clusters__project-management-cluster__Destinations__destination1__Address=http://projectmanagement:8080
       - ReverseProxy__Clusters__utility-cluster__Destinations__destination1__Address=http://utility:8080
       - ReverseProxy__Clusters__intellcoreservice-cluster__Destinations__destination1__Address=http://intellcoreservice:8080
+      - ReverseProxy__Clusters__url-shortener-cluster__Destinations__destination1__Address=http://url-shortener:8080
     depends_on:
       - projectmanagement
       - utility
       - intellcoreservice
+      - url-shortener
     restart: unless-stopped
     networks:
       - boversal-network
@@ -75,6 +75,16 @@ services:
       - Email__FromName=${EMAIL_FROM_NAME}
       - AWS__Region=${AWS_REGION}
       - AWS__BucketName=${AWS_BUCKET_NAME}
+    restart: unless-stopped
+    networks:
+      - boversal-network
+
+  url-shortener:
+    image: 336036263554.dkr.ecr.ap-southeast-1.amazonaws.com/boversal-backend:url-shortener-latest
+    container_name: boversal-url-shortener
+    environment:
+      - PORT=8080
+      - DATABASE_URL=${DATABASE_URL}
     restart: unless-stopped
     networks:
       - boversal-network

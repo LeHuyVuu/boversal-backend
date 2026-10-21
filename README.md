@@ -4,6 +4,7 @@
 
 ![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?style=for-the-badge)
 ![Java](https://img.shields.io/badge/Java-17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Go](https://img.shields.io/badge/Go-1.23-00ADD8?style=for-the-badge&logo=go&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge)
 ![Kafka](https://img.shields.io/badge/Kafka-Event%20Bus-231F20?style=for-the-badge)
@@ -35,6 +36,7 @@ That repository defines the AWS resources used by the AWS deployment option (Ela
 | Reminders | Automatically send email reminders at the scheduled time |
 | Comments & Attachments | Discussion per task/project, file upload to S3 |
 | Login/Registration | JWT-based authentication |
+| URL Shortener | Public short links with optional aliases, expiry, and click statistics |
 
 ---
 
@@ -54,6 +56,7 @@ flowchart TB
     GW --> PMS
     GW --> UTS
     GW --> ATS
+    GW --> URLS
 
     subgraph ATS["AuthenticateService"]
         direction TB
@@ -70,8 +73,14 @@ flowchart TB
         U1["Send Email - Upload File"]
     end
 
+    subgraph URLS["UrlShortenerService"]
+        direction TB
+        S1["Go - Create Links - Redirects - Statistics"]
+    end
+
     PMS <--> DB[("MySQL")]
     ATS <--> DB
+    URLS <--> DB
     PMS -- "Kafka: meeting-created" --> UTS
     UTS --> S3[("AWS S3")]
     UTS --> Mail["SMTP Email"]
@@ -129,6 +138,32 @@ The service is available through the gateway under `/authenticate-service`.
 </td>
 </tr>
 </table>
+
+### UrlShortenerService
+
+**Public URL shortening service written in Go**
+
+- Creates short links with optional custom aliases and expiration times
+- Redirects visitors and records click counts and last-click timestamps
+- Uses the existing MySQL database and is available through the gateway under `/shortener-service`
+- Does not require authentication; link creation and statistics are public
+
+API examples:
+
+```http
+POST /shortener-service/api/links
+Content-Type: application/json
+
+{
+  "url": "https://example.com/a-long-page",
+  "alias": "example",
+  "expiresAt": "2027-01-01T00:00:00Z"
+}
+```
+
+The response includes a `shortPath`, such as `/shortener-service/r/example`. Open that path to redirect to the original URL. Read public click statistics with `GET /shortener-service/api/links/{code}/stats`. Only `http` and `https` target URLs are accepted.
+
+The service reads the same .NET-style `DATABASE_URL` environment variable as the other services and creates its `short_links` table at startup.
 
 ---
 

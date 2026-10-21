@@ -14,6 +14,7 @@ services:
       - utility
       - intellcoreservice
       - authenticate-service
+      - url-shortener
     restart: unless-stopped
     networks:
       - boversal-network
@@ -89,6 +90,18 @@ services:
       - JWT_ISSUER=${JWT_ISSUER}
       - JWT_AUDIENCE=${JWT_AUDIENCE}
       - JWT_EXPIRATION_HOURS=${JWT_EXPIRATION_HOURS}
+    restart: unless-stopped
+    networks:
+      - boversal-network
+
+  url-shortener:
+    build:
+      context: ./UrlShortenerService
+      dockerfile: Dockerfile
+    container_name: boversal-url-shortener
+    environment:
+      - PORT=8080
+      - DATABASE_URL=${DATABASE_URL}
     restart: unless-stopped
     networks:
       - boversal-network
